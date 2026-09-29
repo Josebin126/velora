@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VELORA — Your Bag</title>
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+
+        /* =====================================================
+           VELORA — PREMIUM CART
+           ===================================================== */
+
+        body {
+            background: #050505;
+            color: #f2eee7;
+            font-family: "DM Sans", sans-serif;
+            min-height: 100vh;
+        }
+
+        .cart-page {
+            min-height: 100vh;
+            padding: 140px 7vw 80px;
+        }
+
+        /* HEADER */
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 70px;
+            border-bottom: 1px solid rgba(255,255,255,0.12);
+            padding-bottom: 30px;
+        }
+
+        .cart-eyebrow {
+            color: #c7a66a;
+            font-size: 11px;
+            letter-spacing: 4px;
+            margin-bottom: 18px;
+        }
+
+        .cart-title {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(55px, 8vw, 120px);
+            font-weight: 400;
+            line-height: .85;
+            margin: 0;
+        }
+
+        .cart-count {
+            font-size: 12px;
+            letter-spacing: 3px;
+            color: rgba(242,238,231,.55);
+        }
+
+        /* LAYOUT */
+
+        .cart-layout {
+            display: grid;
+            grid-template-columns: 1.6fr .8fr;
+            gap: 80px;
+        }
+
+        /* PRODUCTS */
+
+        .cart-items {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .cart-item {
+            display: grid;
+            grid-template-columns: 180px 1fr auto;
+            gap: 30px;
+            align-items: center;
+
+            padding: 22px 0;
+
+            border-bottom: 1px solid rgba(255,255,255,.1);
+        }
+
+        .cart-item-image {
+            width: 180px;
+            height: 220px;
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .cart-item-info h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 34px;
+            font-weight: 400;
+            margin: 0 0 8px;
+        }
+
+        .cart-item-category {
+            color: rgba(242,238,231,.5);
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .cart-item-price {
+            color: #c7a66a;
+            margin-top: 22px;
+            font-size: 15px;
+        }
+
+        /* QUANTITY */
+
+        .quantity-box {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+
+            margin-top: 25px;
+        }
+
+        .quantity-btn {
+            width: 32px;
+            height: 32px;
+
+            border: 1px solid rgba(255,255,255,.2);
+            background: transparent;
+            color: #f2eee7;
+
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .quantity-value {
+            min-width: 20px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        .remove-btn {
+            margin-top: 18px;
+            border: none;
+            background: none;
+            color: rgba(242,238,231,.45);
+            cursor: pointer;
+
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .remove-btn:hover {
+            color: #c7a66a;
+        }
+
+        /* SUMMARY */
+
+        .cart-summary {
+            position: sticky;
+            top: 120px;
+
+            padding: 35px;
+
+            border: 1px solid rgba(255,255,255,.12);
+            background: rgba(255,255,255,.025);
+        }
+
+        .summary-title {
+            font-family: "Playfair Display", serif;
+            font-size: 32px;
+            font-weight: 400;
+            margin-bottom: 35px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+
+            padding: 14px 0;
+
+            border-bottom: 1px solid rgba(255,255,255,.08);
+
+            font-size: 13px;
+        }
+
+        .summary-row span:first-child {
+            color: rgba(242,238,231,.5);
+        }
+
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+
+            margin-top: 25px;
+            padding-top: 20px;
+
+            border-top: 1px solid rgba(255,255,255,.2);
+
+            font-size: 18px;
+        }
+
+        .summary-total span:last-child {
+            color: #c7a66a;
+        }
+
+        /* BUTTONS */
+
+        .checkout-btn {
+            width: 100%;
+            margin-top: 35px;
+            padding: 18px;
+
+            border: none;
+            background: #f2eee7;
+            color: #080808;
+
+            font-size: 11px;
+            letter-spacing: 3px;
+
+            cursor: pointer;
+        }
+
+        .checkout-btn:hover {
+            background: #c7a66a;
+        }
+
+        .continue-btn {
+            display: block;
+            margin-top: 20px;
+
+            text-align: center;
+
+            color: rgba(242,238,231,.55);
+            text-decoration: none;
+
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .continue-btn:hover {
+            color: #c7a66a;
+        }
+
+        /* EMPTY CART */
+
+        .empty-cart {
+            display: none;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .empty-cart h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 60px;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        .empty-cart p {
+            color: rgba(242,238,231,.5);
+            margin-bottom: 35px;
+        }
+
+        .empty-cart a {
+            color: #c7a66a;
+            text-decoration: none;
+            letter-spacing: 2px;
+            font-size: 11px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            .cart-page {
+                padding: 110px 25px 60px;
+            }
+
+            .cart-header {
+                display: block;
+            }
+
+            .cart-count {
+                display: block;
+                margin-top: 25px;
+            }
+
+            .cart-layout {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .cart-summary {
+                position: static;
+            }
+
+            .cart-item {
+                grid-template-columns: 110px 1fr;
+                gap: 18px;
+            }
+
+            .cart-item-image {
+                width: 110px;
+                height: 150px;
+            }
+
+            .cart-item-info h2 {
+                font-size: 25px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- CART PAGE -->
+
+    <main class="cart-page">
+
+        <!-- HEADER -->
+
+        <header class="cart-header">
+
+            <div>
+
+                <p class="cart-eyebrow">
+                    VELORA / BAG
+                </p>
+
+                <h1 class="cart-title">
+                    YOUR<br>
+                    <em>BAG.</em>
+                </h1>
+
+            </div>
+
+            <div class="cart-count">
+                <span id="cartCount">0</span> ITEMS
+            </div>
+
+        </header>
+
+
+        <!-- CART CONTENT -->
+
+        <div class="cart-layout">
+
+            <!-- PRODUCTS -->
+
+            <section>
+
+                <div class="cart-items" id="cartItems">
+
+                    <!-- PRODUCTS WILL LOAD HERE -->
+
+                </div>
+
+
+                <!-- EMPTY CART -->
+
+                <div class="empty-cart" id="emptyCart">
+
+                    <h2>
+                        Your bag is<br>
+                        <em>empty.</em>
+                    </h2>
+
+                    <p>
+                        Discover the VELORA collection.
+                    </p>
+
+                    <a href="index.html#collection">
+                        RETURN TO COLLECTION ↗
+                    </a>
+
+                </div>
+
+            </section>
+
+
+            <!-- SUMMARY -->
+
+            <aside class="cart-summary">
+
+                <h2 class="summary-title">
+                    Summary
+                </h2>
+
+                <div class="summary-row">
+
+                    <span>
+                        Subtotal
+                    </span>
+
+                    <span id="cartSubtotal">
+                        ₹0
+                    </span>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Shipping
+                    </span>
+
+                    <span>
+                        Complimentary
+                    </span>
+
+                </div>
+
+
+                <div class="summary-total">
+
+                    <span>
+                        TOTAL
+                    </span>
+
+                    <span id="cartTotal">
+                        ₹0
+                    </span>
+
+                </div>
+
+
+                <button class="checkout-btn" id="checkoutBtn">
+
+                    PROCEED TO CHECKOUT
+                    ↗
+
+                </button>
+
+
+                <a
+                    href="index.html#collection"
+                    class="continue-btn"
+                >
+                    ← CONTINUE SHOPPING
+                </a>
+
+            </aside>
+
+        </div>
+
+    </main>
+
+
+    <!-- CART JAVASCRIPT -->
+
+    <script src="js/cart.js"></script>
+
+</body>
+
+</html>

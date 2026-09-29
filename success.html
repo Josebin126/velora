@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VELORA — Order Confirmed</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            min-height: 100%;
+        }
+
+        body {
+            background: #050505;
+            color: #f2eee7;
+            font-family: "DM Sans", sans-serif;
+            overflow-x: hidden;
+        }
+
+        .success-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 60px 25px;
+        }
+
+        /* BACKGROUND */
+
+        .success-page::before {
+            content: "VELORA";
+
+            position: absolute;
+            left: 50%;
+            bottom: -12vw;
+
+            transform: translateX(-50%);
+
+            font-family: "Playfair Display", serif;
+            font-size: 25vw;
+            line-height: 1;
+
+            color: rgba(255,255,255,.025);
+
+            white-space: nowrap;
+            pointer-events: none;
+        }
+
+        .success-page::after {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(199,166,106,.08),
+                    transparent 45%
+                );
+
+            pointer-events: none;
+        }
+
+        /* CONTENT */
+
+        .success-content {
+            position: relative;
+            z-index: 2;
+
+            width: min(850px, 100%);
+
+            text-align: center;
+        }
+
+        .success-number {
+            color: #c7a66a;
+
+            font-size: 10px;
+            letter-spacing: 5px;
+
+            margin-bottom: 35px;
+        }
+
+        .success-mark {
+            width: 76px;
+            height: 76px;
+
+            margin: 0 auto 35px;
+
+            border: 1px solid rgba(199,166,106,.6);
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: #c7a66a;
+            font-size: 25px;
+        }
+
+        .success-title {
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(65px, 10vw, 145px);
+
+            font-weight: 400;
+            line-height: .82;
+
+            margin: 0;
+        }
+
+        .success-title em {
+            color: #c7a66a;
+            font-weight: 400;
+        }
+
+        .success-message {
+            max-width: 520px;
+
+            margin: 40px auto 0;
+
+            color: rgba(242,238,231,.6);
+
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* ORDER CARD */
+
+        .order-card {
+            width: min(560px, 100%);
+
+            margin: 50px auto 0;
+            padding: 28px 35px;
+
+            border: 1px solid rgba(255,255,255,.12);
+
+            background: rgba(255,255,255,.025);
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            text-align: left;
+        }
+
+        .order-label {
+            color: rgba(242,238,231,.45);
+
+            font-size: 9px;
+            letter-spacing: 3px;
+
+            margin-bottom: 8px;
+        }
+
+        .order-number {
+            font-family: "Playfair Display", serif;
+            font-size: 21px;
+        }
+
+        .order-total {
+            color: #c7a66a;
+            font-size: 18px;
+        }
+
+        /* BUTTON */
+
+        .success-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            margin-top: 45px;
+
+            padding: 18px 35px;
+
+            background: #f2eee7;
+            color: #050505;
+
+            text-decoration: none;
+
+            font-size: 10px;
+            letter-spacing: 3px;
+
+            transition: .3s ease;
+        }
+
+        .success-btn:hover {
+            background: #c7a66a;
+            transform: translateY(-3px);
+        }
+
+        .footer-text {
+            margin-top: 35px;
+
+            color: rgba(242,238,231,.3);
+
+            font-size: 9px;
+            letter-spacing: 3px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            .success-page {
+                padding: 40px 20px;
+            }
+
+            .order-card {
+                padding: 22px;
+            }
+
+            .success-title {
+                font-size: 65px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <main class="success-page">
+
+        <section class="success-content">
+
+            <div class="success-number">
+                VELORA / ORDER COMPLETE
+            </div>
+
+
+            <div class="success-mark">
+                ✓
+            </div>
+
+
+            <h1 class="success-title">
+                ORDER<br>
+                <em>CONFIRMED.</em>
+            </h1>
+
+
+            <p class="success-message">
+                Thank you for choosing VELORA.
+                Your order has been received and is being
+                prepared with care.
+            </p>
+
+
+            <div class="order-card">
+
+                <div>
+
+                    <div class="order-label">
+                        ORDER NUMBER
+                    </div>
+
+                    <div
+                        class="order-number"
+                        id="orderNumber"
+                    >
+                        VL-2026-0001
+                    </div>
+
+                </div>
+
+
+                <div>
+
+                    <div class="order-label">
+                        TOTAL
+                    </div>
+
+                    <div
+                        class="order-total"
+                        id="orderTotal"
+                    >
+                        ₹0
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <a
+                href="index.html"
+                class="success-btn"
+            >
+                RETURN TO VELORA ↗
+            </a>
+
+
+            <div class="footer-text">
+                THE DIGITAL RUNWAY
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+    /* =========================================
+       VELORA — ORDER CONFIRMATION
+       ========================================= */
+
+    const savedTotal =
+        Number(
+            localStorage.getItem("veloraOrderTotal")
+        ) || 0;
+
+
+    document.getElementById("orderTotal").textContent =
+        `₹${savedTotal.toLocaleString("en-IN")}`;
+
+
+    /* CREATE ORDER NUMBER */
+
+    const orderNumber =
+        "VL-2026-" +
+        Math.floor(
+            1000 + Math.random() * 9000
+        );
+
+
+    document.getElementById("orderNumber").textContent =
+        orderNumber;
+
+
+    /* CLEAR CART AFTER ORDER */
+
+    localStorage.removeItem("veloraCart");
+
+</script>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VELORA — Payment</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #050505;
+            color: #f5f1e8;
+            font-family: "DM Sans", sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .payment-page {
+            width: min(900px, 92%);
+            padding: 60px 0;
+        }
+
+        .brand {
+            text-align: center;
+            font-family: "Playfair Display", serif;
+            font-size: 34px;
+            letter-spacing: 8px;
+            margin-bottom: 12px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #aaa;
+            font-size: 13px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 45px;
+        }
+
+        .payment-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: #101010;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .payment-left,
+        .payment-right {
+            padding: 45px;
+        }
+
+        .payment-left {
+            border-right: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+        }
+
+        .label {
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: #999;
+            margin-bottom: 12px;
+        }
+
+        .amount {
+            font-family: "Playfair Display", serif;
+            font-size: 42px;
+            margin-bottom: 35px;
+        }
+
+        .qr-placeholder {
+    width: 230px;
+    height: 230px;
+    margin: 0 auto 25px;
+    background: #fff;
+    overflow: hidden;
+    padding: 0;
+}
+
+.qr-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+        .instruction {
+            color: #aaa;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .payment-right h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 28px;
+            font-weight: 400;
+            margin-bottom: 25px;
+        }
+
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+
+        .step {
+            display: flex;
+            gap: 15px;
+        }
+
+        .number {
+            width: 28px;
+            height: 28px;
+            border: 1px solid #777;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        .step p {
+            color: #aaa;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .paid-btn {
+            width: 100%;
+            margin-top: 35px;
+            padding: 17px;
+            background: #f5f1e8;
+            color: #050505;
+            border: none;
+            cursor: pointer;
+            font-size: 12px;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        .paid-btn:hover {
+            background: #d8d0c0;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+            color: #888;
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 700px) {
+            .payment-box {
+                grid-template-columns: 1fr;
+            }
+
+            .payment-left {
+                border-right: none;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .payment-left,
+            .payment-right {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="payment-page">
+
+        <div class="brand">VELORA</div>
+
+        <div class="subtitle">
+            Secure Checkout
+        </div>
+
+        <section class="payment-box">
+
+            <div class="payment-left">
+
+                <div class="label">TOTAL AMOUNT</div>
+
+                <div class="amount" id="paymentAmount">
+                    ₹0
+                </div>
+<div class="qr-placeholder">
+    <img src="images/payment/gpay-qr.png" alt="VELORA UPI Payment QR">
+</div>
+
+                <p class="instruction">
+                    Scan the QR code using Google Pay,
+                    PhonePe, Paytm or any UPI application.
+                </p>
+
+            </div>
+
+            <div class="payment-right">
+
+                <h2>Complete Your Payment</h2>
+
+                <div class="steps">
+
+                    <div class="step">
+                        <div class="number">1</div>
+                        <p>
+                            Open your preferred UPI application.
+                        </p>
+                    </div>
+
+                    <div class="step">
+                        <div class="number">2</div>
+                        <p>
+                            Scan the VELORA payment QR code.
+                        </p>
+                    </div>
+
+                    <div class="step">
+                        <div class="number">3</div>
+                        <p>
+                            Complete the payment for the displayed amount.
+                        </p>
+                    </div>
+
+                </div>
+
+                <button class="paid-btn" id="paidButton">
+                    I HAVE COMPLETED PAYMENT ↗
+                </button>
+
+            </div>
+
+        </section>
+
+        <a href="checkout.html" class="back">
+            ← BACK TO CHECKOUT
+        </a>
+
+    </main>
+
+    <script>
+        const total =
+            Number(localStorage.getItem("veloraOrderTotal")) || 0;
+
+        document.getElementById("paymentAmount").textContent =
+            `₹${total.toLocaleString("en-IN")}`;
+
+        document.getElementById("paidButton").addEventListener("click", () => {
+            window.location.href = "success.html";
+        });
+    </script>
+
+</body>
+</html>

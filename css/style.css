@@ -1,0 +1,797 @@
+/* =========================================================
+   VELORA — PREMIUM GLOBAL STYLE
+   ========================================================= */
+
+:root {
+    --black: #080808;
+    --soft-black: #101010;
+    --charcoal: #171717;
+    --cream: #f2eee7;
+    --muted: #a7a29a;
+    --gold: #c7a66a;
+    --line: rgba(242, 238, 231, 0.16);
+
+    --serif: "Playfair Display", serif;
+    --sans: "DM Sans", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    background: var(--black);
+}
+
+body {
+    background: var(--black);
+    color: var(--cream);
+    font-family: var(--sans);
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+::selection {
+    background: var(--gold);
+    color: var(--black);
+}
+
+
+/* =========================================================
+   CUSTOM CURSOR
+   ========================================================= */
+
+.cursor,
+.cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.cursor {
+    width: 7px;
+    height: 7px;
+    background: var(--cream);
+    transition: transform 0.15s ease;
+}
+
+.cursor-ring {
+    width: 34px;
+    height: 34px;
+    border: 1px solid rgba(242, 238, 231, 0.55);
+    transition:
+        width 0.3s ease,
+        height 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 90px;
+
+    padding: 0 5vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    z-index: 1000;
+
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.65),
+        transparent
+    );
+
+    backdrop-filter: blur(4px);
+}
+
+.logo {
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    letter-spacing: 0.28em;
+    font-weight: 500;
+}
+
+.nav-links {
+    display: flex;
+    gap: 42px;
+}
+
+.nav-links a {
+    position: relative;
+
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+
+    color: rgba(242, 238, 231, 0.78);
+
+    transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 1px;
+
+    background: var(--gold);
+
+    transition: width 0.4s ease;
+}
+
+.nav-links a:hover {
+    color: var(--cream);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.bag-btn {
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.03);
+
+    color: var(--cream);
+
+    padding: 11px 17px;
+
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.bag-btn span {
+    margin-left: 8px;
+    color: var(--gold);
+}
+
+.bag-btn:hover {
+    background: rgba(199, 166, 106, 0.1);
+    border-color: var(--gold);
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   GENERAL TYPOGRAPHY
+   ========================================================= */
+
+.eyebrow {
+    color: var(--gold);
+
+    font-size: 0.68rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+}
+
+em {
+    font-style: italic;
+    color: var(--gold);
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+    position: relative;
+
+    min-height: 100vh;
+    height: 100svh;
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 70% 45%,
+            rgba(199, 166, 106, 0.13),
+            transparent 30%
+        ),
+        linear-gradient(
+            110deg,
+            #050505 20%,
+            #111 65%,
+            #080808
+        );
+}
+
+.hero-bg {
+    position: absolute;
+    inset: -8%;
+
+    background:
+        radial-gradient(
+            ellipse at 65% 50%,
+            rgba(255, 255, 255, 0.08),
+            transparent 18%
+        ),
+        radial-gradient(
+            ellipse at 75% 40%,
+            rgba(199, 166, 106, 0.18),
+            transparent 30%
+        );
+
+    transform: scale(1.05);
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.85) 0%,
+            rgba(0, 0, 0, 0.35) 55%,
+            rgba(0, 0, 0, 0.75) 100%
+        );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    width: min(800px, 90%);
+
+    margin-left: 10vw;
+
+    padding-top: 80px;
+}
+
+.hero-small {
+    margin-bottom: 28px;
+
+    color: var(--gold);
+
+    font-size: 0.68rem;
+    letter-spacing: 0.32em;
+}
+
+.hero h1 {
+    font-size: clamp(4rem, 9vw, 9.5rem);
+    line-height: 0.84;
+    letter-spacing: -0.04em;
+
+    text-transform: uppercase;
+}
+
+.hero h1 span {
+    display: inline-block;
+    color: transparent;
+
+    -webkit-text-stroke: 1px rgba(242, 238, 231, 0.75);
+}
+
+.hero-description {
+    max-width: 420px;
+
+    margin-top: 42px;
+
+    color: var(--muted);
+
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+.hero-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 22px;
+
+    margin-top: 34px;
+
+    padding: 15px 22px;
+
+    border: 1px solid rgba(242, 238, 231, 0.35);
+
+    font-size: 0.67rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+
+    transition:
+        background 0.4s ease,
+        color 0.4s ease,
+        border-color 0.4s ease,
+        transform 0.4s ease;
+}
+
+.hero-btn span {
+    color: var(--gold);
+    font-size: 1rem;
+}
+
+.hero-btn:hover {
+    background: var(--cream);
+    color: var(--black);
+    border-color: var(--cream);
+    transform: translateY(-4px);
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 35px;
+    left: 50%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+
+    color: rgba(242, 238, 231, 0.5);
+
+    font-size: 0.57rem;
+    letter-spacing: 0.25em;
+
+    transform: translateX(-50%);
+}
+
+.scroll-indicator div {
+    width: 1px;
+    height: 55px;
+
+    background: linear-gradient(
+        to bottom,
+        var(--gold),
+        transparent
+    );
+
+    animation: scrollLine 2s infinite ease-in-out;
+}
+
+@keyframes scrollLine {
+    0%,
+    100% {
+        transform: scaleY(0.4);
+        transform-origin: top;
+    }
+
+    50% {
+        transform: scaleY(1);
+        transform-origin: top;
+    }
+}
+
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.intro {
+    min-height: 90vh;
+
+    display: grid;
+    grid-template-columns: 25% 75%;
+    align-items: center;
+
+    padding: 10vw;
+
+    background: var(--black);
+}
+
+.intro-number {
+    color: var(--gold);
+
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+}
+
+.intro-text {
+    max-width: 760px;
+}
+
+.intro-text h2 {
+    margin: 25px 0 35px;
+
+    font-size: clamp(3rem, 6vw, 7rem);
+    line-height: 0.95;
+}
+
+.intro-text > p:last-child {
+    max-width: 500px;
+
+    color: var(--muted);
+
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   COLLECTION
+   ========================================================= */
+
+.collection {
+    padding: 12vw 7vw;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--black),
+            #111 50%,
+            var(--black)
+        );
+}
+
+.section-heading {
+    margin-bottom: 100px;
+}
+
+.section-heading h2 {
+    margin-top: 22px;
+
+    font-size: clamp(4rem, 8vw, 9rem);
+    line-height: 0.85;
+
+    text-transform: uppercase;
+}
+
+.collection-grid {
+    display: grid;
+
+    grid-template-columns: 1.25fr 0.75fr;
+
+    gap: 80px 35px;
+
+    align-items: start;
+}
+
+.fashion-card {
+    cursor: pointer;
+}
+
+.card-large {
+    grid-row: span 2;
+}
+
+.fashion-image {
+    position: relative;
+
+    width: 100%;
+    min-height: 520px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(199, 166, 106, 0.2),
+            transparent 30%
+        ),
+        linear-gradient(
+            145deg,
+            #252525,
+            #080808
+        );
+
+    transition:
+        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-large .fashion-image {
+    min-height: 780px;
+}
+
+.fashion-image::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            transparent 35%,
+            rgba(255, 255, 255, 0.08),
+            transparent 65%
+        );
+
+    transform: translateX(-100%);
+
+    transition: transform 1s ease;
+}
+
+.fashion-card:hover .fashion-image {
+    transform: scale(0.98);
+}
+
+.fashion-card:hover .fashion-image::after {
+    transform: translateX(100%);
+}
+
+.fashion-info {
+    display: grid;
+    grid-template-columns: 45px 1fr;
+
+    padding-top: 20px;
+}
+
+.fashion-info span {
+    color: var(--gold);
+
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+}
+
+.fashion-info h3 {
+    font-size: 1.6rem;
+}
+
+.fashion-info p {
+    grid-column: 2;
+
+    margin-top: 5px;
+
+    color: var(--muted);
+
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   RUNWAY
+   ========================================================= */
+
+.runway {
+    position: relative;
+
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+
+    padding: 10vw;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 70% 50%,
+            rgba(199, 166, 106, 0.12),
+            transparent 28%
+        ),
+        #090909;
+}
+
+.runway::before {
+    content: "VELORA";
+
+    position: absolute;
+    right: -5vw;
+    bottom: -5vw;
+
+    font-family: var(--serif);
+    font-size: 25vw;
+
+    color: rgba(255, 255, 255, 0.025);
+
+    pointer-events: none;
+}
+
+.runway-content {
+    position: relative;
+    z-index: 2;
+
+    max-width: 800px;
+}
+
+.runway h2 {
+    margin: 30px 0;
+
+    font-size: clamp(4rem, 9vw, 10rem);
+    line-height: 0.85;
+
+    text-transform: uppercase;
+}
+
+.runway-content > p:last-child {
+    color: var(--muted);
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   FINAL SECTION
+   ========================================================= */
+
+.final-section {
+    min-height: 90vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 10vw;
+
+    background: var(--cream);
+    color: var(--black);
+}
+
+.final-section > p {
+    margin-bottom: 25px;
+
+    color: #76613c;
+
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+}
+
+.final-section h2 {
+    font-size: clamp(4rem, 10vw, 11rem);
+    line-height: 0.82;
+}
+
+.final-section em {
+    color: #8d7040;
+}
+
+.final-section .hero-btn {
+    color: var(--black);
+    border-color: rgba(0, 0, 0, 0.3);
+}
+
+.final-section .hero-btn:hover {
+    background: var(--black);
+    color: var(--cream);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+    min-height: 180px;
+
+    padding: 50px 7vw;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: #050505;
+
+    border-top: 1px solid var(--line);
+
+    color: var(--muted);
+
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+}
+
+.footer-logo {
+    color: var(--cream);
+
+    font-family: var(--serif);
+
+    font-size: 1.5rem;
+    letter-spacing: 0.25em;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        height: 75px;
+        padding: 0 5vw;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero-content {
+        margin-left: 7vw;
+    }
+
+    .hero h1 {
+        font-size: clamp(3.5rem, 17vw, 6rem);
+    }
+
+    .intro {
+        min-height: 80vh;
+
+        display: block;
+
+        padding: 25vw 7vw;
+    }
+
+    .intro-number {
+        margin-bottom: 50px;
+    }
+
+    .collection {
+        padding: 20vw 6vw;
+    }
+
+    .section-heading {
+        margin-bottom: 60px;
+    }
+
+    .collection-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .card-large {
+        grid-row: auto;
+    }
+
+    .fashion-image,
+    .card-large .fashion-image {
+        min-height: 500px;
+    }
+
+    .runway {
+        min-height: 80vh;
+        padding: 20vw 7vw;
+    }
+
+    footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+    }
+
+    .cursor,
+    .cursor-ring {
+        display: none;
+    }
+}
