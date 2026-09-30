@@ -256,17 +256,22 @@
 
     </main>
 
-    <script>
-        const total =
-            Number(localStorage.getItem("veloraOrderTotal")) || 0;
+   <script>
+    const order =
+        JSON.parse(localStorage.getItem("veloraOrder")) || {};
 
-        document.getElementById("paymentAmount").textContent =
-            `₹${total.toLocaleString("en-IN")}`;
+    const total = Number(order.total) || 0;
 
-        document.getElementById("paidButton").addEventListener("click", () => {
-            window.location.href = "success.html";
-        });
-    </script>
+    document.getElementById("paymentAmount").textContent =
+        `₹${total.toLocaleString("en-IN")}`;
 
+    document.getElementById("paidButton").addEventListener("click", () => {
+
+        // Save payment status for this demo order
+        localStorage.setItem("veloraPaymentStatus", "completed");
+
+        window.location.href = "success.html";
+    });
+</script>
 </body>
 </html>

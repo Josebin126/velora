@@ -323,16 +323,14 @@
 
 
     <script>
-
     /* =========================================
        VELORA — ORDER CONFIRMATION
        ========================================= */
 
-    const savedTotal =
-        Number(
-            localStorage.getItem("veloraOrderTotal")
-        ) || 0;
+    const order =
+        JSON.parse(localStorage.getItem("veloraOrder")) || {};
 
+    const savedTotal = Number(order.total) || 0;
 
     document.getElementById("orderTotal").textContent =
         `₹${savedTotal.toLocaleString("en-IN")}`;
@@ -342,10 +340,7 @@
 
     const orderNumber =
         "VL-2026-" +
-        Math.floor(
-            1000 + Math.random() * 9000
-        );
-
+        Math.floor(1000 + Math.random() * 9000);
 
     document.getElementById("orderNumber").textContent =
         orderNumber;

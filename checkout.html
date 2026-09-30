@@ -435,13 +435,22 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
 
-        /* SAVE ORDER TOTAL */
+     /* SAVE ORDER DETAILS */
 
-        localStorage.setItem(
-            "veloraOrderTotal",
-            total
-        );
+const orderDetails = {
+    name: document.getElementById("fullName").value.trim(),
+    email: document.getElementById("email").value.trim(),
+    phone: document.getElementById("phone").value.trim(),
+    address: document.getElementById("address").value.trim(),
+    city: document.getElementById("city").value.trim(),
+    pincode: document.getElementById("pincode").value.trim(),
+    total: total
+};
 
+localStorage.setItem(
+    "veloraOrder",
+    JSON.stringify(orderDetails)
+);  
 
         /* GO TO SUCCESS PAGE */
 
